@@ -13,7 +13,7 @@ $red=$izraz->fetchAll();
 		<?php include_once 'predlosci/izbornik.php'; ?>
 			<?php
 			foreach($red as $r){ ?>
-			<p><?php echo $r['ime']; ?></p>
+			<p><a href="igra.php?id=<?php echo $r['igra_id']; ?>"><?php echo $r['ime']; ?></a></p>
 			<p><?php echo $r['studio']; ?></p>
 			<br><br>
 			<?php } ?>
