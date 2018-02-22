@@ -28,6 +28,4 @@ insert into igra(ime,studio) values ('igra 1','studio 1'),('igra 2','studio 2'),
 INSERT INTO `komentar`(`tekst`, `igra_id`, `korisnik_id`) VALUES ('Odlicna igra 10/10',1,1),('Katastrofa 1/10',1,1);
 
 /*
-SELECT a.username, b.tekst, c.ime
-from korisnik a inner join komentar b where a.korisnik_id=b.korisnik_id
-inner join igra c where b.igra_id=c.igra_id order by a.korisnik_id desc
+SELECT a.username, b.tekst, c.ime from korisnik a inner join komentar b on a.korisnik_id=b.korisnik_id inner join igra c on b.igra_id=c.igra_id order by a.korisnik_id desc
