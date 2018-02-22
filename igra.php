@@ -21,7 +21,7 @@ $red=$izraz->fetchAll();
 		$izrazz=$veza->prepare("SELECT a.username, b.tekst
 								from korisnik a 
 								inner join komentar b on a.korisnik_id=b.korisnik_id
-								inner join igra c on b.igra_id=c.igra_id where c.igra_id=:id order by a.korisnik_id desc");
+								inner join igra c on b.igra_id=c.igra_id where c.igra_id=:id order by b.komentar_id desc");
 		$izrazz->execute(array('id'=>$id));
 		$row=$izrazz->fetchAll();
 		foreach($row as $a) {
@@ -29,6 +29,10 @@ $red=$izraz->fetchAll();
 		<p>Korisnik: <?php echo $a['username']; ?></p>
 		<p>Komentar: <?php echo $a['tekst']; ?></p>
 		<?php } ?>
+		<form method="post" action="action_komentar.php?id=<?php echo $id; ?>">
+			<input type="text" name="tekst" id="tekst">
+			<input type="submit" value="Potvrdi">
+		</form>
 		<?php include_once 'predlosci/skripte.php'; ?>
 	</body>
 </html>
